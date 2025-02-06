@@ -1,0 +1,12 @@
+services:
+  cache-server:
+    image: linux-repository-cache-server:dev
+    ports:
+      - 80:80
+    volumes:
+      - type: volume
+        source: cache
+        target: /var/lib/linux-repository
+
+volumes:
+  cache:
