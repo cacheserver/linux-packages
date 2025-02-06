@@ -5,14 +5,14 @@ A simple Linux Package Repositories cache server using NGINX `proxy_cache` modul
 
 ## Supported Repositories
 
-| Distro                   | Repository                               |
-| ------------------------ | ---------------------------------------- |
-| Alpine Linux             | `https://dl-cdn.alpinelinux.org/alpine/` |
-| Debian                   | `http://deb.debian.org/debian/`          |
-| Kali                     | `http://http.kali.org/kali/`             |
-| Proxmox (non-enterprise) | `http://download.proxmox.com/debian/`    |
-| Raspberry Pi             | `http://archive.raspberrypi.com/debian/` |
-| Ubuntu                   | `http://archive.ubuntu.com/ubuntu/`      |
+| Distro                   | Repository                                                      |
+| ------------------------ | --------------------------------------------------------------- |
+| Alpine Linux             | `dl-cdn.alpinelinux.org`                                        |
+| Debian                   | `deb.debian.org`                                                |
+| Kali                     | `http.kali.org`                                                 |
+| Proxmox (non-enterprise) | `download.proxmox.com`                                          |
+| Raspberry Pi             | `archive.raspberrypi.com`                                       |
+| Ubuntu                   | `archive.ubuntu.com`, `ports.ubuntu.com`, `security.ubuntu.com` |
 
 ## References
 https://docs.nginx.com/nginx/admin-guide/content-cache/content-caching/
