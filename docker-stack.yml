@@ -1,8 +1,8 @@
 services:
   cache-server:
-    image: linux-repository-cache-server:dev
+    image: chocolatefrappe/linux-package-cache-proxy:dev
     ports:
-      - 80:80
+      - 35080:80
     volumes:
       - type: volume
         source: cache
