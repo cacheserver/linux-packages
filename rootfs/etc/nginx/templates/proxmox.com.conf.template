@@ -1,12 +1,12 @@
 # Proxmox (non-enterprise)
 
-proxy_cache_path /var/lib/linux-repository/proxmox 
-    keys_zone=proxmox:10m 
-    levels=2:2 
-    inactive=3650d 
-    loader_files=64 
-    loader_sleep=50ms 
-    loader_threshold=300ms 
+proxy_cache_path /var/lib/linux-repository/proxmox
+    keys_zone=proxmox:10m
+    levels=2:2
+    inactive=3650d
+    loader_files=64
+    loader_sleep=50ms
+    loader_threshold=300ms
     use_temp_path=off;
 
 server {

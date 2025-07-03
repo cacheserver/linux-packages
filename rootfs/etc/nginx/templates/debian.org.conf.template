@@ -1,21 +1,21 @@
 # The Debian Repository
 
-proxy_cache_path /var/lib/linux-repository/debian           
-    keys_zone=debian:10m          
-    levels=2:2 
-    inactive=3650d 
-    loader_files=64 
-    loader_sleep=50ms 
-    loader_threshold=300ms 
+proxy_cache_path /var/lib/linux-repository/debian
+    keys_zone=debian:10m
+    levels=2:2
+    inactive=3650d
+    loader_files=64
+    loader_sleep=50ms
+    loader_threshold=300ms
     use_temp_path=off;
 
-proxy_cache_path /var/lib/linux-repository/debian-security  
-    keys_zone=debiansecurity:10m  
-    levels=2:2 
-    inactive=3650d 
-    loader_files=64 
-    loader_sleep=50ms 
-    loader_threshold=300ms 
+proxy_cache_path /var/lib/linux-repository/debian-security
+    keys_zone=debiansecurity:10m
+    levels=2:2
+    inactive=3650d
+    loader_files=64
+    loader_sleep=50ms
+    loader_threshold=300ms
     use_temp_path=off;
 
 server {

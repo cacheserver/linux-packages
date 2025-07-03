@@ -1,12 +1,12 @@
 # The Kali Linux Repository
 
-proxy_cache_path /var/lib/linux-repository/kali 
-    keys_zone=kali:10m 
-    levels=2:2 
-    inactive=3650d 
-    loader_files=64 
-    loader_sleep=50ms 
-    loader_threshold=300ms 
+proxy_cache_path /var/lib/linux-repository/kali
+    keys_zone=kali:10m
+    levels=2:2
+    inactive=3650d
+    loader_files=64
+    loader_sleep=50ms
+    loader_threshold=300ms
     use_temp_path=off;
 
 server {
