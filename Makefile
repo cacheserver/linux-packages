@@ -1,4 +1,5 @@
-it: build deploy
+it: build
+
 build:
 	docker buildx bake --load dev
 deploy:
