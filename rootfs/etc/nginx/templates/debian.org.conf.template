@@ -1,0 +1,38 @@
+# The Debian Repository
+
+proxy_cache_path /var/lib/linux-repository/debian           
+    keys_zone=debian:10m          
+    levels=2:2 
+    inactive=3650d 
+    loader_files=64 
+    loader_sleep=50ms 
+    loader_threshold=300ms 
+    use_temp_path=off;
+
+proxy_cache_path /var/lib/linux-repository/debian-security  
+    keys_zone=debiansecurity:10m  
+    levels=2:2 
+    inactive=3650d 
+    loader_files=64 
+    loader_sleep=50ms 
+    loader_threshold=300ms 
+    use_temp_path=off;
+
+server {
+    listen 80;
+    server_name deb.debian.org;
+    server_name deb.debian.${DOMAIN};
+    include /etc/nginx/linux-repository/general.conf;
+
+    location /debian/ {
+        proxy_cache debian;
+        proxy_pass http://deb.debian.org/debian/;
+        proxy_set_header Host "deb.debian.org";
+    }
+
+    location /debian-security/ {
+        proxy_cache debiansecurity;
+        proxy_pass http://deb.debian.org/debian-security/;
+        proxy_set_header Host "deb.debian.org";
+    }
+}

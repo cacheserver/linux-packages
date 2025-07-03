@@ -1,0 +1,72 @@
+# The Ubuntu Repository
+# This repository is used to provide packages for the amd64 and i386 architectures.
+proxy_cache_path /var/lib/linux-repository/ubuntu
+    keys_zone=ubuntu:10m
+    levels=2:2
+    inactive=3650d
+    loader_files=64
+    loader_sleep=50ms
+    loader_threshold=300ms
+    use_temp_path=off;
+
+server {
+    listen 80;
+    server_name archive.ubuntu.com;
+    server_name archive.ubuntu.${DOMAIN};
+    include /etc/nginx/linux-repository/general.conf;
+
+    location /ubuntu/ {
+        proxy_cache ubuntu;
+        proxy_pass http://archive.ubuntu.com/ubuntu/;
+        proxy_set_header Host "archive.ubuntu.com";
+    }
+}
+
+
+# The PORT Architecture Ubuntu Repository
+# This repository is used to provide packages for the arm64, armhf, ppc64el, riscv64 and s390x architectures.
+proxy_cache_path /var/lib/linux-repository/ubuntu-ports 
+    keys_zone=ubuntuports:10m 
+    levels=2:2 
+    inactive=3650d 
+    loader_files=64 
+    loader_sleep=50ms 
+    loader_threshold=300ms 
+    use_temp_path=off;
+
+server {
+    listen 80;
+    server_name ports.ubuntu.com;
+    server_name ports.ubuntu.${DOMAIN};
+    include /etc/nginx/linux-repository/general.conf;
+
+    location /ubuntu-ports/ {
+        proxy_cache ubuntuports;
+        proxy_pass http://ports.ubuntu.com/ubuntu-ports/;
+        proxy_set_header Host "ports.ubuntu.com";
+    }
+}
+
+
+# The Ubuntu Security Repository
+proxy_cache_path /var/lib/linux-repository/ubuntu-security 
+    keys_zone=ubuntusecurity:10m 
+    levels=2:2 
+    inactive=3650d 
+    loader_files=64 
+    loader_sleep=50ms 
+    loader_threshold=300ms 
+    use_temp_path=off;
+
+server {
+    listen 80;
+    server_name security.ubuntu.com;
+    server_name security.ubuntu.${DOMAIN};
+    include /etc/nginx/linux-repository/general.conf;
+
+    location /ubuntu/ {
+        proxy_cache ubuntusecurity;
+        proxy_pass http://security.ubuntu.com/ubuntu/;
+        proxy_set_header Host "security.ubuntu.com";
+    }
+}

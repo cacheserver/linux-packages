@@ -1,10 +1,18 @@
-proxy_cache_path /var/lib/linux-repository/alpine           keys_zone=alpine:10m            levels=2:2 inactive=3650d loader_files=64 loader_sleep=50ms loader_threshold=300ms use_temp_path=off;
-
 # The Alpine Linux Repository
+
+proxy_cache_path /var/lib/linux-repository/alpine           
+    keys_zone=alpine:10m            
+    levels=2:2 
+    inactive=3650d 
+    loader_files=64 
+    loader_sleep=50ms 
+    loader_threshold=300ms 
+    use_temp_path=off;
+
 server {
     listen 80;
     server_name dl-cdn.alpinelinux.org;
-    server_name dl-cdn.alpinelinux.internal;
+    server_name dl-cdn.alpinelinux.${DOMAIN};
     include /etc/nginx/linux-repository/general.conf;
 
     location /alpine/ {
