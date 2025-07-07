@@ -1,6 +1,6 @@
 # The Kali Linux Repository
 
-proxy_cache_path /var/lib/linux-cache/kali
+proxy_cache_path /var/cache/linux-packages/kali
     keys_zone=kali:10m
     levels=2:2
     inactive=3650d

@@ -6,6 +6,6 @@ services:
     volumes:
       - type: volume
         source: cache
-        target: /var/lib/linux-cache
+        target: /var/cache/linux-packages
 volumes:
   cache:
