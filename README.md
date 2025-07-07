@@ -1,13 +1,11 @@
 ## About
 A simple Linux Package Repositories cache server using NGINX `proxy_cache` module.
 
-> WIP
-
 ## Supported Repositories
 
 | Distro                   | Repository                                                                     |
 | ------------------------ | ------------------------------------------------------------------------------ |
-| Alpine Linux             | http://dl-cdn.alpinelinux.org                                                  |
+| Alpine Linux             | https://dl-cdn.alpinelinux.org                                                 |
 | Debian                   | http://deb.debian.org                                                          |
 | Kali                     | http://http.kali.org                                                           |
 | Proxmox (non-enterprise) | http://download.proxmox.com                                                    |
