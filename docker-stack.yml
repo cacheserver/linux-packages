@@ -2,11 +2,10 @@ services:
   cache-server:
     image: chocolatefrappe/linux-package-cache-proxy:dev
     ports:
-      - 35080:80
+      - 80:80
     volumes:
       - type: volume
         source: cache
-        target: /var/lib/linux-repository
-
+        target: /var/lib/linux-cache
 volumes:
   cache:
