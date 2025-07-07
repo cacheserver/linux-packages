@@ -10,7 +10,7 @@ proxy_cache_path /var/cache/linux-packages/raspberrypi
     use_temp_path=off;
 
 server {
-    listen 80;
+    listen ${PORT};
     server_name archive.raspberrypi.com;
     server_name archive.raspberrypi.${DOMAIN};
     include /etc/nginx/linux-packages/general.conf;

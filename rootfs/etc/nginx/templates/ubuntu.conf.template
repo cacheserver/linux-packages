@@ -10,7 +10,7 @@ proxy_cache_path /var/cache/linux-packages/ubuntu
     use_temp_path=off;
 
 server {
-    listen 80;
+    listen ${PORT};
     server_name archive.ubuntu.com;
     server_name archive.ubuntu.${DOMAIN};
     include /etc/nginx/linux-packages/general.conf;
@@ -35,7 +35,7 @@ proxy_cache_path /var/cache/linux-packages/ubuntu-ports
     use_temp_path=off;
 
 server {
-    listen 80;
+    listen ${PORT};
     server_name ports.ubuntu.com;
     server_name ports.ubuntu.${DOMAIN};
     include /etc/nginx/linux-packages/general.conf;
@@ -59,7 +59,7 @@ proxy_cache_path /var/cache/linux-packages/ubuntu-security
     use_temp_path=off;
 
 server {
-    listen 80;
+    listen ${PORT};
     server_name security.ubuntu.com;
     server_name security.ubuntu.${DOMAIN};
     include /etc/nginx/linux-packages/general.conf;

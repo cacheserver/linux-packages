@@ -19,7 +19,7 @@ proxy_cache_path /var/cache/linux-packages/debian-security
     use_temp_path=off;
 
 server {
-    listen 80;
+    listen ${PORT};
     server_name deb.debian.org;
     server_name deb.debian.${DOMAIN};
     include /etc/nginx/linux-packages/general.conf;
