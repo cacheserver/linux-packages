@@ -13,7 +13,7 @@ server {
     listen 80;
     server_name archive.ubuntu.com;
     server_name archive.ubuntu.${DOMAIN};
-    include /etc/nginx/linux-repository/general.conf;
+    include /etc/nginx/linux-packages/general.conf;
 
     location /ubuntu/ {
         proxy_cache ubuntu;
@@ -38,7 +38,7 @@ server {
     listen 80;
     server_name ports.ubuntu.com;
     server_name ports.ubuntu.${DOMAIN};
-    include /etc/nginx/linux-repository/general.conf;
+    include /etc/nginx/linux-packages/general.conf;
 
     location /ubuntu-ports/ {
         proxy_cache ubuntuports;
@@ -62,7 +62,7 @@ server {
     listen 80;
     server_name security.ubuntu.com;
     server_name security.ubuntu.${DOMAIN};
-    include /etc/nginx/linux-repository/general.conf;
+    include /etc/nginx/linux-packages/general.conf;
 
     location /ubuntu/ {
         proxy_cache ubuntusecurity;

@@ -13,7 +13,7 @@ server {
     listen 80;
     server_name archive.raspberrypi.com;
     server_name archive.raspberrypi.${DOMAIN};
-    include /etc/nginx/linux-repository/general.conf;
+    include /etc/nginx/linux-packages/general.conf;
 
     location /debian/ {
         proxy_cache raspberrypi;

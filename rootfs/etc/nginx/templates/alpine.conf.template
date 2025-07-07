@@ -13,7 +13,7 @@ server {
     listen 80;
     server_name dl-cdn.alpinelinux.org;
     server_name dl-cdn.alpinelinux.${DOMAIN};
-    include /etc/nginx/linux-repository/general.conf;
+    include /etc/nginx/linux-packages/general.conf;
 
     location /alpine/ {
         proxy_cache alpine;

@@ -13,7 +13,7 @@ server {
     listen 80;
     server_name http.kali.org;
     server_name http.kali.${DOMAIN};
-    include /etc/nginx/linux-repository/general.conf;
+    include /etc/nginx/linux-packages/general.conf;
 
     location /kali/ {
         proxy_cache kali;
