@@ -6,4 +6,5 @@ RUN sed -i 's#security.ubuntu.com#security.ubuntu.local#g' /etc/apt/sources.list
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
-    curl
+    curl \
+    git

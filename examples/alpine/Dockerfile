@@ -4,4 +4,5 @@ RUN sed -i 's#https://dl-cdn.alpinelinux.org#http://dl-cdn.alpinelinux.local#g' 
 
 RUN apk update && apk add --no-cache \
     ca-certificates \
-    curl
+    curl \
+    git
