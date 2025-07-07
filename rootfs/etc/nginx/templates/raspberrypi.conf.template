@@ -1,6 +1,6 @@
 # The Raspberry Pi Repository
 
-proxy_cache_path /var/lib/linux-repository/raspberrypi
+proxy_cache_path /var/lib/linux-cache/raspberrypi
     keys_zone=raspberrypi:10m
     levels=2:2
     inactive=3650d

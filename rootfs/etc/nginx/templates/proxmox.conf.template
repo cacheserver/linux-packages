@@ -1,6 +1,6 @@
 # Proxmox (non-enterprise)
 
-proxy_cache_path /var/lib/linux-repository/proxmox
+proxy_cache_path /var/lib/linux-cache/proxmox
     keys_zone=proxmox:10m
     levels=2:2
     inactive=3650d

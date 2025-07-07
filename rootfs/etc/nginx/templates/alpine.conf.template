@@ -1,6 +1,6 @@
 # The Alpine Linux Repository
 
-proxy_cache_path /var/lib/linux-repository/alpine
+proxy_cache_path /var/lib/linux-cache/alpine
     keys_zone=alpine:10m
     levels=2:2
     inactive=3650d
