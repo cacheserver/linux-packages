@@ -1,0 +1,13 @@
+# SNI proxy
+
+log_format stream_basic '$remote_addr [$time_local] $protocol $status $ssl_preread_server_name $bytes_sent $bytes_received $session_time';
+
+server {
+  listen 443;
+  resolver 8.8.8.8 ipv6=off;
+  proxy_pass $ssl_preread_server_name:443;
+  ssl_preread on;
+
+  access_log /var/log/nginx/access.log stream_basic;
+  error_log /var/log/nginx/error.log;
+}
