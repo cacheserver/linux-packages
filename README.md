@@ -1,5 +1,5 @@
 ## About
-A simple Linux Package Repositories cache server using NGINX `proxy_cache` module.
+This is a cache server for Linux package repositories, it is designed to be deployed in a private network to cache Linux package to reduce the load on the public servers and speed up the download process.
 
 ## Supported Repositories
 
