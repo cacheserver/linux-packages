@@ -1,7 +1,7 @@
 # Proxmox (non-enterprise)
 
 proxy_cache_path /var/cache/linux-packages/proxmox
-    keys_zone=proxmox:10m
+    keys_zone=proxmox:64m
     levels=2:2
     inactive=365d
     loader_files=64

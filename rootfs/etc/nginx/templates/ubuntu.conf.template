@@ -1,7 +1,7 @@
 # The Ubuntu Repository
 # This repository is used to provide packages for the amd64 and i386 architectures.
 proxy_cache_path /var/cache/linux-packages/ubuntu
-    keys_zone=ubuntu:10m
+    keys_zone=ubuntu:64m
     levels=2:2
     inactive=365d
     loader_files=64
@@ -26,7 +26,7 @@ server {
 # The PORT Architecture Ubuntu Repository
 # This repository is used to provide packages for the arm64, armhf, ppc64el, riscv64 and s390x architectures.
 proxy_cache_path /var/cache/linux-packages/ubuntu-ports
-    keys_zone=ubuntuports:10m
+    keys_zone=ubuntuports:64m
     levels=2:2
     inactive=365d
     loader_files=64
@@ -50,7 +50,7 @@ server {
 
 # The Ubuntu Security Repository
 proxy_cache_path /var/cache/linux-packages/ubuntu-security
-    keys_zone=ubuntusecurity:10m
+    keys_zone=ubuntusecurity:64m
     levels=2:2
     inactive=365d
     loader_files=64
