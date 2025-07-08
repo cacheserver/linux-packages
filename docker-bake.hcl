@@ -14,6 +14,6 @@ target "default" {
 
 target "dev" {
     tags = [
-        "chocolatefrappe/linux-packages-cacheserver:dev"
+        "ghcr.io/cacheserver/linux-packages:dev"
     ]
 }

@@ -1,6 +1,6 @@
 services:
   cacheserver:
-    image: chocolatefrappe/linux-packages-cacheserver:dev
+    image: ghcr.io/cacheserver/linux-packages:dev
     ports:
       - 80:80
     volumes:
