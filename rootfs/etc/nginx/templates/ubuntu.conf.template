@@ -13,6 +13,7 @@ server {
     listen ${PORT};
     server_name archive.ubuntu.com;
     server_name archive.ubuntu.${DOMAIN};
+
     include /etc/nginx/linux-packages/general.conf;
 
     location /ubuntu/ {
@@ -38,6 +39,7 @@ server {
     listen ${PORT};
     server_name ports.ubuntu.com;
     server_name ports.ubuntu.${DOMAIN};
+
     include /etc/nginx/linux-packages/general.conf;
 
     location /ubuntu-ports/ {
@@ -62,6 +64,7 @@ server {
     listen ${PORT};
     server_name security.ubuntu.com;
     server_name security.ubuntu.${DOMAIN};
+
     include /etc/nginx/linux-packages/general.conf;
 
     location /ubuntu/ {

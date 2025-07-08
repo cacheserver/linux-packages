@@ -13,6 +13,7 @@ server {
     listen ${PORT};
     server_name http.kali.org;
     server_name http.kali.${DOMAIN};
+
     include /etc/nginx/linux-packages/general.conf;
 
     location /kali/ {
