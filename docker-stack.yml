@@ -1,6 +1,9 @@
 services:
   cacheserver:
     image: ghcr.io/cacheserver/linux-packages:main
+    environment:
+      - DOMAIN=local
+      - PORT=80
     ports:
       - 80:80
     volumes:
