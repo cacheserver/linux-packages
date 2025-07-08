@@ -1,6 +1,6 @@
 services:
   cacheserver:
-    image: ghcr.io/cacheserver/linux-packages:dev
+    image: ghcr.io/cacheserver/linux-packages:main
     ports:
       - 80:80
     volumes:
@@ -8,5 +8,23 @@ services:
         source: cache
         target: /var/cache/linux-packages
     stop_grace_period: 5m
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 10s
+        max_attempts: 5
+        window: 60s
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: continue
+        monitor: 60s
+        max_failure_ratio: 0.1
+      rollback_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: continue
+        monitor: 60s
+        max_failure_ratio: 0.1
 volumes:
   cache:

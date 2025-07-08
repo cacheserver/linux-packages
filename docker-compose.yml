@@ -1,0 +1,13 @@
+services:
+  cacheserver:
+    image: ghcr.io/cacheserver/linux-packages:main
+    restart: always
+    stop_grace_period: 5m
+    ports:
+      - 80:80
+    volumes:
+      - type: volume
+        source: cache
+        target: /var/cache/linux-packages
+volumes:
+  cache:
