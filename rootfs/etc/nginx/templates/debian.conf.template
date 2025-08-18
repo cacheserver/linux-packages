@@ -1,6 +1,6 @@
 # The Debian Repository
 
-proxy_cache_path /var/cache/linux-packages/debian
+proxy_cache_path /var/cache/cacheserver/linux-packages/debian
     keys_zone=debian:64m
     levels=2:2
     inactive=365d
@@ -9,7 +9,7 @@ proxy_cache_path /var/cache/linux-packages/debian
     loader_threshold=300ms
     use_temp_path=off;
 
-proxy_cache_path /var/cache/linux-packages/debian-security
+proxy_cache_path /var/cache/cacheserver/linux-packages/debian-security
     keys_zone=debiansecurity:64m
     levels=2:2
     inactive=365d
