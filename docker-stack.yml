@@ -10,7 +10,7 @@ services:
     volumes:
       - type: volume
         source: cache
-        target: /var/cache/linux-packages
+        target: /var/cache/cacheserver/linux-packages
     stop_grace_period: 5m
     deploy:
       restart_policy:
