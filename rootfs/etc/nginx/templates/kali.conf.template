@@ -14,7 +14,7 @@ server {
     server_name http.kali.org;
     server_name http.kali.${DOMAIN};
 
-    include cacheserver.d/cache.conf;
+    include conf.d/cacheserver.d/cache.conf;
 
     location /kali/ {
         proxy_cache kali;

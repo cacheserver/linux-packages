@@ -1,3 +1,6 @@
+# DNS Resolver (with IPv6 disabled)
+resolver               ${RESOLVER_ADDR} ipv6=off valid=15s;
+resolver_timeout       2s;
 
 # Log with cache status
 access_log /var/log/nginx/access.log cachelog;
