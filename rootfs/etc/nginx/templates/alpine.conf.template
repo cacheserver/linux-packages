@@ -14,7 +14,7 @@ server {
     server_name dl-cdn.alpinelinux.org;
     server_name dl-cdn.alpinelinux.${DOMAIN};
 
-    include /etc/nginx/linux-packages/general.conf;
+    include cacheserver.d/cache.conf;
 
     location /alpine/ {
         proxy_cache alpine;

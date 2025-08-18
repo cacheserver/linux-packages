@@ -14,7 +14,7 @@ server {
     server_name archive.raspberrypi.com;
     server_name archive.raspberrypi.${DOMAIN};
 
-    include /etc/nginx/linux-packages/general.conf;
+    include cacheserver.d/cache.conf;
 
     location /debian/ {
         proxy_cache raspberrypi;

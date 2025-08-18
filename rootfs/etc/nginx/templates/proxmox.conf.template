@@ -14,7 +14,7 @@ server {
     server_name download.proxmox.com;
     server_name download.proxmox.${DOMAIN};
 
-    include /etc/nginx/linux-packages/general.conf;
+    include cacheserver.d/cache.conf;
 
     location /debian/ {
         proxy_cache proxmox;
