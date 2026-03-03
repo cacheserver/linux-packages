@@ -13,10 +13,14 @@ server {
     listen ${PORT};
     status_zone archive.ubuntu.com;
     server_name archive.ubuntu.com;
-    server_name archive.ubuntu.${DOMAIN};
+    server_name archive.ubuntu.com.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 
+    location / {
+        proxy_pass http://archive.ubuntu.com/;
+        proxy_set_header Host "archive.ubuntu.com";
+    }
     location /ubuntu/ {
         proxy_cache ubuntu;
         proxy_pass http://archive.ubuntu.com/ubuntu/;
@@ -40,7 +44,7 @@ server {
     listen ${PORT};
     status_zone ports.ubuntu.com;
     server_name ports.ubuntu.com;
-    server_name ports.ubuntu.${DOMAIN};
+    server_name ports.ubuntu.com.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 
@@ -66,7 +70,7 @@ server {
     listen ${PORT};
     status_zone security.ubuntu.com;
     server_name security.ubuntu.com;
-    server_name security.ubuntu.${DOMAIN};
+    server_name security.ubuntu.com.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 

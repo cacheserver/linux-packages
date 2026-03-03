@@ -13,10 +13,14 @@ server {
     listen ${PORT};
     status_zone dl-cdn.alpinelinux.org;
     server_name dl-cdn.alpinelinux.org;
-    server_name dl-cdn.alpinelinux.${DOMAIN};
+    server_name dl-cdn.alpinelinux.org.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 
+    location / {
+        proxy_pass http://dl-cdn.alpinelinux.org/;
+        proxy_set_header Host "dl-cdn.alpinelinux.org";
+    }
     location /alpine/ {
         proxy_cache alpine;
         proxy_pass http://dl-cdn.alpinelinux.org/alpine/;

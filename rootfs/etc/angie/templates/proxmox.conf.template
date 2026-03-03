@@ -13,10 +13,14 @@ server {
     listen ${PORT};
     status_zone download.proxmox.com;
     server_name download.proxmox.com;
-    server_name download.proxmox.${DOMAIN};
+    server_name download.proxmox.com.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 
+    location / {
+        proxy_pass http://download.proxmox.com/;
+        proxy_set_header Host "download.proxmox.com";
+    }
     location /debian/ {
         proxy_cache proxmox;
         proxy_pass http://download.proxmox.com/debian/;

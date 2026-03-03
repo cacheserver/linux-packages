@@ -13,10 +13,14 @@ server {
     listen ${PORT};
     status_zone archive.raspberrypi.com;
     server_name archive.raspberrypi.com;
-    server_name archive.raspberrypi.${DOMAIN};
+    server_name archive.raspberrypi.com.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 
+    location / {
+        proxy_pass http://archive.raspberrypi.com/;
+        proxy_set_header Host "archive.raspberrypi.com";
+    }
     location /debian/ {
         proxy_cache raspberrypi;
         proxy_pass http://archive.raspberrypi.com/debian/;

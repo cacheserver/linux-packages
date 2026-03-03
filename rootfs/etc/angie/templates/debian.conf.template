@@ -22,16 +22,19 @@ server {
     listen ${PORT};
     status_zone deb.debian.org;
     server_name deb.debian.org;
-    server_name deb.debian.${DOMAIN};
+    server_name deb.debian.org.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 
+    location / {
+        proxy_pass http://deb.debian.org/;
+        proxy_set_header Host "deb.debian.org";
+    }
     location /debian/ {
         proxy_cache debian;
         proxy_pass http://deb.debian.org/debian/;
         proxy_set_header Host "deb.debian.org";
     }
-
     location /debian-security/ {
         proxy_cache debian-security;
         proxy_pass http://deb.debian.org/debian-security/;

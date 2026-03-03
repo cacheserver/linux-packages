@@ -13,10 +13,14 @@ server {
     listen ${PORT};
     status_zone http.kali.org;
     server_name http.kali.org;
-    server_name http.kali.${DOMAIN};
+    server_name http.kali.org.${DOMAIN};
 
     include conf.d/cacheserver.d/cache.conf;
 
+    location / {
+        proxy_pass http://http.kali.org/;
+        proxy_set_header Host "http.kali.org";
+    }
     location /kali/ {
         proxy_cache kali;
         proxy_pass http://http.kali.org/kali/;
