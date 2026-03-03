@@ -11,9 +11,9 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/proxmox
 
 server {
     listen ${PORT};
+    status_zone download.proxmox.com;
     server_name download.proxmox.com;
     server_name download.proxmox.${DOMAIN};
-    status_zone download.proxmox.com;
 
     include conf.d/cacheserver.d/cache.conf;
 

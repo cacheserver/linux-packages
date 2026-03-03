@@ -11,9 +11,9 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/ubuntu
 
 server {
     listen ${PORT};
+    status_zone archive.ubuntu.com;
     server_name archive.ubuntu.com;
     server_name archive.ubuntu.${DOMAIN};
-    status_zone archive.ubuntu.com;
 
     include conf.d/cacheserver.d/cache.conf;
 
@@ -28,7 +28,7 @@ server {
 # The PORT Architecture Ubuntu Repository
 # This repository is used to provide packages for the arm64, armhf, ppc64el, riscv64 and s390x architectures.
 proxy_cache_path /var/cache/cacheserver/linux-packages/ubuntu-ports
-    keys_zone=ubuntuports:64m
+    keys_zone=ubuntu-ports:64m
     levels=2:2
     inactive=365d
     loader_files=64
@@ -38,14 +38,14 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/ubuntu-ports
 
 server {
     listen ${PORT};
+    status_zone ports.ubuntu.com;
     server_name ports.ubuntu.com;
     server_name ports.ubuntu.${DOMAIN};
-    status_zone ports.ubuntu.com;
 
     include conf.d/cacheserver.d/cache.conf;
 
     location /ubuntu-ports/ {
-        proxy_cache ubuntuports;
+        proxy_cache ubuntu-ports;
         proxy_pass http://ports.ubuntu.com/ubuntu-ports/;
         proxy_set_header Host "ports.ubuntu.com";
     }
@@ -54,7 +54,7 @@ server {
 
 # The Ubuntu Security Repository
 proxy_cache_path /var/cache/cacheserver/linux-packages/ubuntu-security
-    keys_zone=ubuntusecurity:64m
+    keys_zone=ubuntu-security:64m
     levels=2:2
     inactive=365d
     loader_files=64
@@ -64,14 +64,14 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/ubuntu-security
 
 server {
     listen ${PORT};
+    status_zone security.ubuntu.com;
     server_name security.ubuntu.com;
     server_name security.ubuntu.${DOMAIN};
-    status_zone security.ubuntu.com;
 
     include conf.d/cacheserver.d/cache.conf;
 
     location /ubuntu/ {
-        proxy_cache ubuntusecurity;
+        proxy_cache ubuntu-security;
         proxy_pass http://security.ubuntu.com/ubuntu/;
         proxy_set_header Host "security.ubuntu.com";
     }

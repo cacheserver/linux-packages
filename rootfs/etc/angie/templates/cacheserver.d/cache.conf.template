@@ -36,8 +36,3 @@ proxy_ignore_client_abort on;
 proxy_next_upstream error timeout http_404;
 proxy_redirect off;
 proxy_ssl_server_name on;
-
-# Status page
-location = /status {
-    stub_status;
-}

@@ -10,7 +10,7 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/debian
     use_temp_path=off;
 
 proxy_cache_path /var/cache/cacheserver/linux-packages/debian-security
-    keys_zone=debiansecurity:64m
+    keys_zone=debian-security:64m
     levels=2:2
     inactive=365d
     loader_files=64
@@ -20,9 +20,9 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/debian-security
 
 server {
     listen ${PORT};
+    status_zone deb.debian.org;
     server_name deb.debian.org;
     server_name deb.debian.${DOMAIN};
-    status_zone deb.debian.org;
 
     include conf.d/cacheserver.d/cache.conf;
 
@@ -33,7 +33,7 @@ server {
     }
 
     location /debian-security/ {
-        proxy_cache debiansecurity;
+        proxy_cache debian-security;
         proxy_pass http://deb.debian.org/debian-security/;
         proxy_set_header Host "deb.debian.org";
     }

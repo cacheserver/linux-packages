@@ -11,9 +11,9 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/alpine
 
 server {
     listen ${PORT};
+    status_zone dl-cdn.alpinelinux.org;
     server_name dl-cdn.alpinelinux.org;
     server_name dl-cdn.alpinelinux.${DOMAIN};
-    status_zone dl-cdn.alpinelinux.org;
 
     include conf.d/cacheserver.d/cache.conf;
 

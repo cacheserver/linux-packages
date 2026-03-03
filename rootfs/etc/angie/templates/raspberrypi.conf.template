@@ -11,9 +11,9 @@ proxy_cache_path /var/cache/cacheserver/linux-packages/raspberrypi
 
 server {
     listen ${PORT};
+    status_zone archive.raspberrypi.com;
     server_name archive.raspberrypi.com;
     server_name archive.raspberrypi.${DOMAIN};
-    status_zone archive.raspberrypi.com;
 
     include conf.d/cacheserver.d/cache.conf;
 
