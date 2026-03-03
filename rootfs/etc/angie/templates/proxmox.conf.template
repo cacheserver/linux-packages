@@ -13,6 +13,7 @@ server {
     listen ${PORT};
     server_name download.proxmox.com;
     server_name download.proxmox.${DOMAIN};
+    status_zone download.proxmox.com;
 
     include conf.d/cacheserver.d/cache.conf;
 

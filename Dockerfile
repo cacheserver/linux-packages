@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM ghcr.io/socheatsok78/angie:minimal
 ADD rootfs /
 VOLUME [ "/var/cache/cacheserver/linux-packages" ]
 ENV DOMAIN=localhost

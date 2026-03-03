@@ -1,0 +1,31 @@
+server {
+    listen ${PORT} default_server;
+    server_name _;
+
+    location / {
+        auto_redirect on;
+
+        root /usr/share/angie-console-light/html/;
+        index index.html;
+
+        location /api/ {
+            access_log off;
+            api /status/;
+        }
+
+        # For editing features to work after authentication (PRO only)
+        location /api/config/ {
+
+            # auth_basic           "Protected site";
+            # auth_basic_user_file conf/htpasswd;
+
+            api /config/;
+        }
+    }
+
+    location /status/ {
+        api     /status/;
+        allow   127.0.0.1;
+        deny    all;
+    }
+}

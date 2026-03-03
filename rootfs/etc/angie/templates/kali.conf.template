@@ -13,6 +13,7 @@ server {
     listen ${PORT};
     server_name http.kali.org;
     server_name http.kali.${DOMAIN};
+    status_zone http.kali.org;
 
     include conf.d/cacheserver.d/cache.conf;
 
